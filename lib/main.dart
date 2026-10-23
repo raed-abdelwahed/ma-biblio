@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'screens/catalogue_screen.dart';
+import 'screens/parametres_screen.dart';
 
 void main() {
   runApp(const MaBiblioApp());
@@ -34,7 +36,20 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('MaBiblio'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ParametresScreen()),
+              );
+            },
+          ),
+        ],
       ),
+      // Le catalogue remplace l'affichage temporaire des 3 livres (Q1.7)
+      body: const CatalogueScreen(),
     );
   }
 }
